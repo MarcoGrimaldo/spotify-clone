@@ -1,38 +1,167 @@
+
+
+body{
+  background: #272727;
+  padding-bottom: 5rem;
+}
+
 .App {
   text-align: center;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+article{
+  background-color: aqua;
+  margin:  1rem;
+
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
-}
-
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
+.reproductor{
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  width: 100%;
   display: flex;
-  flex-direction: column;
+  justify-content: space-around;
   align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
+  color: whitesmoke;
+  background-color: rgba(0, 0, 0, .85);
+  backdrop-filter: blur(3px);
+  
+}
+
+.song{
+  border-radius: 10px;
+  padding: 0.5rem;
+}
+
+.songsContainer{
+  margin-inline: 4rem;
+  display: grid;
+  grid-template-columns: repeat(3,1fr);
+  gap: 1rem;
+}
+
+.navMenu {
+  position: absolute;
+  top: 5%;
+  left: 15%;
+  -webkit-transform: translate(-50%, -50%);
+  transform: translate(-50%, -50%);
+}
+
+.navMenu .navbar-element {
+  color: #f6f4e6;
+  text-decoration: none;
+  font-size: 1.2em;
+  text-transform: uppercase;
+  font-weight: 500;
+  display: inline-block;
+  width: 80px;
+  -webkit-transition: all 0.2s ease-in-out;
+  transition: all 0.2s ease-in-out;
+}
+
+.navMenu .navbar-element:hover {
+  color: #017a15;
+}
+
+.navMenu .dot {
+  width: 6px;
+  height: 6px;
+  background: #017a15;
+  border-radius: 50%;
+  opacity: 0;
+  -webkit-transform: translateX(30px);
+  transform: translateX(30px);
+  -webkit-transition: all 0.2s ease-in-out;
+  transition: all 0.2s ease-in-out;
+}
+
+.navMenu .navbar-element:nth-child(1):hover ~ .dot {
+  -webkit-transform: translateX(30px);
+  transform: translateX(30px);
+  -webkit-transition: all 0.2s ease-in-out;
+  transition: all 0.2s ease-in-out;
+  opacity: 1;
+}
+
+.navMenu .navbar-element:nth-child(2):hover ~ .dot {
+  -webkit-transform: translateX(110px);
+  transform: translateX(110px);
+  -webkit-transition: all 0.2s ease-in-out;
+  transition: all 0.2s ease-in-out;
+  opacity: 1;
+}
+
+.navMenu .navbar-element:nth-child(3):hover ~ .dot {
+  -webkit-transform: translateX(200px);
+  transform: translateX(200px);
+  -webkit-transition: all 0.2s ease-in-out;
+  transition: all 0.2s ease-in-out;
+  opacity: 1;
+}
+
+.navMenu .navbar-element:nth-child(4):hover ~ .dot {
+  -webkit-transform: translateX(285px);
+  transform: translateX(285px);
+  -webkit-transition: all 0.2s ease-in-out;
+  transition: all 0.2s ease-in-out;
+  opacity: 1;
+}
+
+.search-input{
+  width: 80%;
+  padding: 12px 20px;
+  margin: 8px 0;
+  display: inline-block;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  box-sizing: border-box;
+}
+
+.search-button{
+  border-radius: 8px;
+  background-color: #017a15; /* Green */
+  border: none;
   color: white;
+  margin: 7px;
+  padding: 10px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  cursor: pointer;
 }
 
-.App-link {
-  color: #61dafb;
+.search-button:hover{
+  background-color: #016111;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.search-container{
+  display: flex;
+  justify-content: center;
+  padding-bottom: 2rem;
+}
+
+.btn {
+  background-color: #003E0B;
+  border: none;
+  color: white;
+  padding: 12px 16px;
+  font-size: 16px;
+  cursor: pointer;
+  border-radius: 8px;
+}
+
+.btn-rep {
+  background-color: rgba(0, 0, 0, 0);
+  border: none;
+  color: white;
+  padding: 12px 16px;
+  font-size: 25px;
+  cursor: pointer;
+}
+
+.btn:hover {
+  background-color: #297E38;
 }

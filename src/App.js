@@ -1,24 +1,46 @@
-import logo from './logo.svg';
+import Search from './Search';
+import Home from './Home';
+
+import {useState,useEffect} from 'react';
+
+import {
+  BrowserRouter as Router,
+  Switch,
+  Route,
+  Link
+} from "react-router-dom";
+
 import './App.css';
+//import { useLocalStorage } from 'react-use';
+
+
+const initialState = JSON.parse(localStorage.getItem("favoritos") || "[]");
 
 function App() {
+  
+  const [favoriteSongs, setFavoriteSongs] = useState(initialState);
+  //const [favoriteSongs, setFavoriteSongs] = useLocalStorage("favoritos",'[]');
+  
+  useEffect(() => {
+      localStorage.setItem('favoritos',JSON.stringify(favoriteSongs));
+  }, [favoriteSongs])
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <Router>
+      <nav className="navMenu">
+        <Link to="/" className="navbar-element">Me</Link>
+        <Link to="/search" className="navbar-element">Search</Link>
+        <div className="dot"></div>
+      </nav> 
+      <Switch>
+        <Route exact path="/">
+          <Home favoriteSongs={favoriteSongs} />
+        </Route>
+        <Route path="/search">
+          <Search favoriteSongs={favoriteSongs}  setFavoriteSongs={setFavoriteSongs}/>
+        </Route>
+      </Switch>
+    </Router>
   );
 }
 
